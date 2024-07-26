@@ -1,7 +1,7 @@
 <script setup>
 import { onMounted, computed } from "vue";
 import TreeItem from "./TreeItem.vue";
-import { Sidebar } from "vuedigitalpowerui";
+import { Sidebar } from "digitalpower";
 import items from "../../controllers/sidebarController.js";
 
 onMounted(() => {
