@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@mdi/font": "^7.4.47",
+    "@popperjs/core": "^2.11.8",
     "bootstrap": "^5.3.3",
     "boxicons": "^2.1.4",
     "digitalpower": "^0.1.0",

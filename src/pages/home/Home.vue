@@ -2,8 +2,8 @@
     <Card>
         <template #title>Inicio</template>
         <template #body>
-            <p>Hola usuario! Bienvenido a Digital Power Managment.</p>
-            <Input type="text" label="Buscar Módulos" value="" placeholder="Nombre del modulo" class="mt-6" />
+            <p class="mb-4">Hola usuario! Bienvenido a Digital Power Template.</p>
+            <Input type="text" label="Buscar Módulos" value="" placeholder="Nombre del modulo" />
         </template>
     </Card>
 </template>
