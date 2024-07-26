@@ -10,5 +10,6 @@ export default [
         id: 9,
         label: 'Mi perfil',
         icon: "user",
+        url: "/perfil"
     },
 ];
