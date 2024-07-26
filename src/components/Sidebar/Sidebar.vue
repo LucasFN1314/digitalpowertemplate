@@ -1,44 +1,22 @@
 <script setup>
 import { onMounted, computed } from "vue";
-import TreeItem from "./TreeItem.vue";
 import { Sidebar } from "digitalpower";
 import items from "../../controllers/sidebarController.js";
+import { useRouter } from "vue-router";
 
-onMounted(() => {
-});
+const router = useRouter();
 
-const itemsMobile = computed(() => {
-    let Items = items.map((x) => {
-        let item = {
-            label: x?.title,
-            icon: x?.icon,
-            url: x?.target,
-            fill: "white"
-        };
-
-        if (x?.children) {
-            item.children = x?.children.map((y) => {
-                return {
-                    label: y?.title,
-                    icon: y?.icon,
-                    url: y?.target,
-                    fill: "white"
-                };
-            });
-        }
-        return item;
-    });
-    console.log(Items);
-    return Items;
-});
+const action = (link) => {
+    router.push(link);
+}
 
 </script>
 <template>
     <div class="sidebar desktop">
-        <Sidebar id="mobileSidebar" :items="items"></Sidebar>
+        <Sidebar id="mobileSidebar" :items="items" @action="action"></Sidebar>
     </div>
     <div class="sidebar-mobile mobile">
-        <Sidebar id="mobileSidebar" :items="items"></Sidebar>
+        <Sidebar id="mobileSidebar" :items="items" @action="action"></Sidebar>
     </div>
 </template>
 
