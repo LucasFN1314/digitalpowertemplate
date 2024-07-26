@@ -6,12 +6,14 @@
         <slot name="body"></slot>
     </div>
 
+    <!--
     <div class="card card-mobile mobile" slide shadow radius-border>
         <h1 underline>
             <slot name="title"></slot>
         </h1>
         <slot name="body"></slot>
     </div>
+-->
 </template>
 
 <style scoped>

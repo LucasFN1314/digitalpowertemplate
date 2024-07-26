@@ -29,4 +29,11 @@ import Sidebar from "./components/Sidebar/Sidebar.vue";
     top: 0;
     right: 0;
 }
+
+@media screen and (max-width: 600px) {
+    .app-container {
+        padding: 0;
+        width: 80%;
+    }
+}
 </style>
