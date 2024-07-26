@@ -12,10 +12,7 @@ const action = (link) => {
 
 </script>
 <template>
-    <div class="sidebar desktop">
-        <Sidebar id="mobileSidebar" :items="items" @action="action"></Sidebar>
-    </div>
-    <div class="sidebar-mobile mobile">
+    <div class="sidebar">
         <Sidebar id="mobileSidebar" :items="items" @action="action"></Sidebar>
     </div>
 </template>
