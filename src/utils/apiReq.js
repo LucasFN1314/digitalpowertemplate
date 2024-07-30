@@ -18,6 +18,40 @@ const config = {
     },
 };
 
+export const get = (path, body) => {
+    return new Promise(async (resolve) => {
+        service
+            .get(path, config)
+            .then((response) => {
+                let message = response?.message ?? response.data?.message;
+                let status = response?.status ?? response.data?.status;
+
+                if (message) {
+                    show(message);
+                }
+                setTimeout(() => {
+                    if (response?.data?.redirect) {
+                        location.href = response?.data?.redirect;
+                    }
+                }, 1000);
+
+                if (status === 401) {
+                    location.href = "/admin";
+                }
+                resolve(response);
+            })
+            .catch((err) => {
+                console.log(err)
+                if (err.response.status === 401) {
+                    localStorage.removeItem("dp_user");
+                    location.href = "/login";
+                }
+                show("Ha ocurrido un error, intente mas tarde");
+            })
+            .finally(() => { });
+    });
+};
+
 export const post = (path, body) => {
     return new Promise(async (resolve) => {
         service
