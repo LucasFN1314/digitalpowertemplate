@@ -1,15 +1,27 @@
-import { isMobileDevice } from "./appController";
-export default [
+let fields = [
     {
         id: 0,
         label: 'Inicio',
         url: "/",
         icon: "home",
     },
-    {
-        id: 9,
-        label: 'Mi perfil',
-        icon: "user",
-        url: "/perfil"
-    },
 ];
+
+const adminFields = [
+    {
+        id: 1,
+        label: 'Agregar Escuelas',
+        url: "/escuelas",
+        icon: "buildings",
+    }
+];
+export default function (user) {
+    if (!user) return;
+    if (user?.admin) {
+        fields = [...fields, ...adminFields];
+    }
+    else {
+        fields = [...fields, ...adminFields];
+    }
+    return fields;
+};

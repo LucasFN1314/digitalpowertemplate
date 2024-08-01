@@ -1,15 +1,15 @@
 import axios from "axios";
 import { show } from "./notification.js";
 
-export const backendUrl = "";
+export const backendUrl = "http://localhost:3000";
 
 const service = axios.create({
-    baseURL: `${backendUrl}/api`
+    baseURL: `${backendUrl}`
 });
 
 let user = "";
-if (localStorage.getItem("dp_user") !== "undefined")
-    user = JSON.parse(localStorage.getItem("dp_user"));
+if (localStorage.getItem("user") !== "undefined")
+    user = JSON.parse(localStorage.getItem("user"));
 const config = {
     headers: {
         Authorization: `Bearer ${user?.token}`,
@@ -23,6 +23,7 @@ export const get = (path, body) => {
         service
             .get(path, config)
             .then((response) => {
+                if (response.data.data) response.data = response.data.data;
                 let message = response?.message ?? response.data?.message;
                 let status = response?.status ?? response.data?.status;
 
@@ -57,6 +58,7 @@ export const post = (path, body) => {
         service
             .post(path, { data: body }, config)
             .then((response) => {
+                if (response.data.data) response.data = response.data.data;
                 let message = response?.message ?? response.data?.message;
                 let status = response?.status ?? response.data?.status;
 

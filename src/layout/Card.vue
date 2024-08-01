@@ -19,7 +19,7 @@
 <style scoped>
 .card {
     width: 100%;
-    height: 100%;
+    min-height: 100%;
     overflow-x: hidden;
     overflow-y: auto;
     padding: 2em;
