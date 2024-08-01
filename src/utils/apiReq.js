@@ -56,7 +56,7 @@ export const get = (path, body) => {
 export const post = (path, body) => {
     return new Promise(async (resolve) => {
         service
-            .post(path, { data: body }, config)
+            .post(path, body, config)
             .then((response) => {
                 if (response.data.data) response.data = response.data.data;
                 let message = response?.message ?? response.data?.message;
@@ -77,11 +77,12 @@ export const post = (path, body) => {
                 resolve(response);
             })
             .catch((err) => {
+
                 if (err.response.status === 401) {
                     localStorage.removeItem("dp_user");
                     location.href = "/login";
                 }
-                else if (err.response?.data?.message?.length) {
+                else if (typeof err.response?.data?.message !== "string") {
                     for (const msg of err.response?.data?.message) {
                         show(msg);
                     }
