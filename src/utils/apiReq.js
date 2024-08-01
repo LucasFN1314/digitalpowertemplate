@@ -77,12 +77,17 @@ export const post = (path, body) => {
                 resolve(response);
             })
             .catch((err) => {
-                console.log(err)
                 if (err.response.status === 401) {
                     localStorage.removeItem("dp_user");
                     location.href = "/login";
                 }
-                show("Ha ocurrido un error, intente mas tarde");
+                else if (err.response?.data?.message?.length) {
+                    for (const msg of err.response?.data?.message) {
+                        show(msg);
+                    }
+                }
+                else
+                    show("Ha ocurrido un error, intente mas tarde");
             })
             .finally(() => { });
     });
