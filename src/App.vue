@@ -12,7 +12,7 @@ onMounted(async () => {
 <template>
     <div class="app" flex>
         <Sidebar />
-        <div class="app-container">
+        <div class="app-container" id="app-container">
             <div id="notification-container"></div>
             <router-view></router-view>
         </div>
@@ -36,6 +36,8 @@ onMounted(async () => {
     position: absolute;
     top: 0;
     right: 0;
+
+    overflow-y: hidden;
 }
 
 #notification-container {
@@ -45,6 +47,7 @@ onMounted(async () => {
     margin-right: 1em;
     z-index: 1000;
 }
+
 
 @media screen and (max-width: 600px) {
     .app-container {

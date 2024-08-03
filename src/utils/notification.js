@@ -20,14 +20,14 @@ export const show = (text) => {
 
 export const ConfirmModal = () => {
     return new Promise((resolve) => {
-        let container = document.getElementById("app-layout");
+        let container = document.getElementById("app-container");
         let html = document.createElement("div");
         html.setAttribute("id", "confirmModal");
         html.innerHTML = `
         <div class="overlay" overlay>
         </div>
         <div class="custom-modal-html" shadow fade radius-border>
-            <div class="title">
+            <div class="title confirmTitle">
                 <h1>Alerta</h1>
             </div>
             <div class="content">

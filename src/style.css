@@ -82,6 +82,11 @@ label {
   text-align: left;
 }
 
+textarea {
+  background: white;
+  color: black;
+}
+
 #app {
   max-width: 1280px;
   text-align: center;
@@ -94,6 +99,15 @@ label {
 [menuitem] {
   p {
     color: var(--fifth);
+  }
+}
+
+.confirmTitle {
+  h1 {
+    margin: 0 !important;
+    padding-left: 1em;
+    padding-top: .5em;
+    padding-bottom: .3em;
   }
 }
 

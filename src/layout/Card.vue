@@ -19,16 +19,19 @@
 <style scoped>
 .card {
     width: 100%;
-    min-height: 100%;
+    height: 90vh;
     overflow-x: hidden;
     overflow-y: auto;
     padding: 2em;
 }
 
-.card-mobile {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 85%;
+@media screen and (max-width: 500px) {
+    h1 {
+        font-size: 1.5em;
+    }
+
+    .card {
+        height: 95vh;
+    }
 }
 </style>

@@ -1,14 +1,23 @@
 <script setup>
-import { onMounted, computed } from "vue";
+import { onMounted, computed, ref } from "vue";
 import { Sidebar } from "digitalpower";
-import items from "../../controllers/sidebarController.js";
+import getItems from "../../controllers/sidebarController.js";
 import { useRouter } from "vue-router";
+import { useUserStore } from "../../store/userStore.js";
 
+const user = useUserStore();
 const router = useRouter();
+const items = ref([]);
 
 const action = (link) => {
     router.push(link);
 }
+
+
+onMounted(async () => {
+    const userinfo = await user.info();
+    items.value = getItems(userinfo);
+})
 
 </script>
 <template>
