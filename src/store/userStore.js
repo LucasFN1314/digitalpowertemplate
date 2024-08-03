@@ -10,7 +10,8 @@ export const useUserStore = defineStore("user", {
             let localUser = localStorage.getItem("user")
             if (localUser !== "undefined" && localUser !== null) {
                 let user = JSON.parse(localStorage.getItem("user"));
-                return await post("/alumnos/info", { id: user?.id });
+                let response = await post("/alumnos/info", { id: user?.id });
+                return response.data?.user;
             }
         },
         async login(payload) {
