@@ -111,6 +111,11 @@ textarea {
   }
 }
 
+#confirmModalButton:hover,
+#cancelModalButton:hover {
+  color: white;
+}
+
 @media screen and (min-width: 600px) {
   .desktop {
     display: block;
