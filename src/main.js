@@ -13,8 +13,4 @@ import 'boxicons'
 
 const pinia = createPinia()
 
-window.addEventListener('resize', () => {
-    location.href = "/";
-});
-
 createApp(App).use(pinia).use(router).mount('#app')
